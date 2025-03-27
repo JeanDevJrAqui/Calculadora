@@ -1,19 +1,19 @@
 function calcularInss(salarioBruto) {
-    // Faixas de INSS 2025 (valores hipotéticos baseados em ajustes anuais)
-    if (salarioBruto <= 1412.00) return salarioBruto * 0.075; // 7,5%
-    if (salarioBruto <= 2666.68) return (1412 * 0.075) + ((salarioBruto - 1412) * 0.09); // 9%
-    if (salarioBruto <= 4000.03) return (1412 * 0.075) + (1254.68 * 0.09) + ((salarioBruto - 2666.68) * 0.12); // 12%
-    if (salarioBruto <= 7786.02) return (1412 * 0.075) + (1254.68 * 0.09) + (1333.35 * 0.12) + ((salarioBruto - 4000.03) * 0.14); // 14%
+    // Faixas de INSS 2025 (valores aproximados)
+    if (salarioBruto <= 1412.00) return salarioBruto * 0.075;
+    if (salarioBruto <= 2666.68) return (1412 * 0.075) + ((salarioBruto - 1412) * 0.09);
+    if (salarioBruto <= 4000.03) return (1412 * 0.075) + (1254.68 * 0.09) + ((salarioBruto - 2666.68) * 0.12);
+    if (salarioBruto <= 7786.02) return (1412 * 0.075) + (1254.68 * 0.09) + (1333.35 * 0.12) + ((salarioBruto - 4000.03) * 0.14);
     return 908.85; // Teto do INSS em 2025 (aproximado)
 }
 
 function calcularIrpf(salarioBaseIrpf) {
-    // Faixas de IRPF 2025 (valores ajustados com isenção até 2112,00 - aproximado)
+    // Faixas de IRPF 2025 (valores ajustados, isenção até 2112,00 - aproximado)
     if (salarioBaseIrpf <= 2112.00) return 0; // Isento
-    if (salarioBaseIrpf <= 2826.65) return (salarioBaseIrpf - 2112.00) * 0.075; // 7,5%
-    if (salarioBaseIrpf <= 3751.05) return (714.65 * 0.075) + ((salarioBaseIrpf - 2826.65) * 0.15); // 15%
-    if (salarioBaseIrpf <= 4664.68) return (714.65 * 0.075) + (924.40 * 0.15) + ((salarioBaseIrpf - 3751.05) * 0.225); // 22,5%
-    return (714.65 * 0.075) + (924.40 * 0.15) + (913.63 * 0.225) + ((salarioBaseIrpf - 4664.68) * 0.275); // 27,5%
+    if (salarioBaseIrpf <= 2826.65) return (salarioBaseIrpf - 2112.00) * 0.075; 
+    if (salarioBaseIrpf <= 3751.05) return (714.65 * 0.075) + ((salarioBaseIrpf - 2826.65) * 0.15); 
+    if (salarioBaseIrpf <= 4664.68) return (714.65 * 0.075) + (924.40 * 0.15) + ((salarioBaseIrpf - 3751.05) * 0.225);
+    return (714.65 * 0.075) + (924.40 * 0.15) + (913.63 * 0.225) + ((salarioBaseIrpf - 4664.68) * 0.275); 
 }
 
 function calcularSalario() {
